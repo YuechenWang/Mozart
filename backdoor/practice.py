@@ -59,13 +59,14 @@ def exchange_group(run_mode, change_group, current_group, date_format):
     enable_req = dictionary["enableGroup"]
     param_enable = {"gid": change_group, "recoveryStudents": True, "fromDate": date_format}
     print(enable_req)
-    # res = session.get(enable_req, params=param_enable)
+    # res = session.get(base + enable_req, params=param_enable)
 
     # step 2: exchange group
     exchange_req = dictionary["exchangeGroup"]
     param_exchange = {"nid": change_group, "oid": current_group}
     print(exchange_req)
-    # res = session.get(exchange_req, params=param_exchange)
+    # res = session.get(base + exchange_req, params=param_exchange)
+
     return
 
 
@@ -74,4 +75,4 @@ if __name__ == '__main__':
     oid = 0
     dt = '2017123123590000'
 
-    exchange_group('dev', nid, oid, dt)
+    exchange_group('test', nid, oid, dt)
